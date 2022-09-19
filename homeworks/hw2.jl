@@ -1,10 +1,7 @@
 #
-using Plots
+using ImageAnalysis, Plots
 
-include("ImageAnalysis.jl")
-using Main.ImageAnalysis
-
-img = load("foot.pgm") .|> Float32
+img = load("../extra/foot.pgm") .|> Float32
 
 function dudt_ln(u::AbstractArray)
     apply_conv(u, LAPL_F32)
