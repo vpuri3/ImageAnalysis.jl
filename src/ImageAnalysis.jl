@@ -74,7 +74,7 @@ end
 function gauss(x, λ)
     x2 = x * x
     l2 = λ * λ
-    g2(x2, l2)
+    gauss2(x2, l2)
 end
 
 function gauss2(x2, l2)
