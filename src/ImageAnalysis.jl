@@ -1,9 +1,6 @@
 module ImageAnalysis
 
-using Reexport
-
-@reexport using Images
-@reexport using NNlib: conv
+using NNlib: conv
 
 """
 Convention:

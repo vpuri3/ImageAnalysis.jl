@@ -1,5 +1,6 @@
 #
-using ImageAnalysis, Plots
+using ImageAnalysis
+using Images, Plots
 
 img = load("../extra/foot.pgm") .|> Float32
 
