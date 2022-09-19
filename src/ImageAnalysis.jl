@@ -85,7 +85,7 @@ end
 # TIME STEPPERS
 #=================================================#
 
-function euler_fwd(u, dudt_func, dt, niter)
+function euler_fwd(u, dudt_func; dt=0.01f0, niter=100)
     for i=1:niter
         du = dudt_func(u)
         u += dt*du
