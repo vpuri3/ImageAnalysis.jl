@@ -35,5 +35,8 @@ Manifest.toml
 .*.swp
 .*.swo
 
+# coursework
+lectures/
+
 # MacOS
 .DS_Store
