@@ -44,11 +44,11 @@ end
 l1 = 1f-1
 l2 = 1f+1
 
-println("Applying linear filter")
+println("Applying linear filter with dt=0.01 for 50 iterations, and 200 iterations")
 ln1 = euler_fwd(img, dudt_ln; dt=0.01f0, niter=50)
 ln2 = euler_fwd(img, dudt_ln; dt=0.01f0, niter=200)
 
-println("Applying nonlinear filter")
+println("Applying linear filter with dt=0.01 with λ=0.1, 10.0 for 200 iterations")
 nl1 = euler_fwd(img, u -> dudt_nl(u; λ=l1); dt=0.01f0, niter=200)
 nl2 = euler_fwd(img, u -> dudt_nl(u; λ=l2); dt=0.01f0, niter=200)
 
