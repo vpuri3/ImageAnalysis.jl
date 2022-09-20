@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "using Julia $(which julia)"
+
+julia hw2.jl
