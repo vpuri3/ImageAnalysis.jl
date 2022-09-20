@@ -2,4 +2,4 @@
 
 echo "using Julia $(which julia)"
 
-julia hw2.jl
+julia driver.jl
