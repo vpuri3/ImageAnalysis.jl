@@ -37,6 +37,7 @@ Manifest.toml
 
 # coursework
 lectures/
+*zip
 
 # MacOS
 .DS_Store
