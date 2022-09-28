@@ -36,7 +36,7 @@ Manifest.toml
 .*.swo
 
 # coursework
-lectures/
+#lectures/
 *zip
 
 # MacOS
