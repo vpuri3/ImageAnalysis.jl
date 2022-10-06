@@ -12,6 +12,7 @@ Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 
 [compat]
 Images = "0.25"
+Interpolations = "0.14"
 NNlib = "0.8"
 Plots = "1"
 Reexport = "1"
