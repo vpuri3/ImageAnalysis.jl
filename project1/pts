@@ -1,0 +1,9 @@
+<!DOCTYPE pointclassdoc>
+<pointclassdoc>
+ <pointclass timestep="0" name="Class 0" color="#0dd0c8" variable="0" />
+ <pointclass timestep="0" name="Class 1" color="#d08095" variable="0" >
+  <point>108 155 0</point>
+  <point>78 51 0</point>
+ </pointclass>
+ <pointclass timestep="0" name="Class 2" color="#0dd0c8" variable="0" />
+</pointclassdoc>
