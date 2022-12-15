@@ -28,7 +28,7 @@ outName = [rawivName '_' num2str(rawiv.dimXYZ(1)) '_'...
 						 num2str(rawiv.dimXYZ(2)) '_'...
 						 num2str(rawiv.dimXYZ(3)) '.raw'];
 fid=fopen(outName,'wb');
-fwrite(fid, rawiv.image, 'float')
+fwrite(fid, rawiv.image, 'float');
 fclose(fid);
 
 end
