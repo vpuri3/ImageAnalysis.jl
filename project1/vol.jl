@@ -1,5 +1,6 @@
 #
 using LinearAlgebra
+using RawFile
 
 filename = "mri_dcm.rawiv_subunit_00.rawiv"
 
