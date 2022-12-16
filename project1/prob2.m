@@ -11,7 +11,7 @@ zm = linspace(pfile.minXYZ(3), pfile.maxXYZ(3), pfile.dimXYZ(3));
 tfile = 'iso_tri.raw';
 tfile = readTriRaw(tfile);
 
-Nv = length(tfile.x);
+Nv = tfile.nVerts;
 xyz  = horzcat(tfile.x, tfile.y, tfile.z);
 pval = zeros(Nv, 1);
 
@@ -22,6 +22,26 @@ end
 pmax  = max(pval)
 pmin  = min(pval)
 pmean = sum(pval) / Nv
+
+rgb = zeros(Nv, 3);
+for i=1:Nv
+    if pval(i) > 0.1;
+        rgb(i,:) = [0, 0, 1];
+    elseif pval(i) < -0.1;
+        rgb(i,:) = [1, 0, 0];
+    else
+        rgb(i,:) = [1, 1, 1];
+    end
+end
+
+Ne = tfile.nElems;
+
+filename = 'iso_tri.rawc';
+fid = fopen(filename, 'w');
+fprintf(fid, [num2str(Nv), ' ', num2str(Ne)]);
+dlmwrite(filename, horzcat(xyz, rgb), 'delimiter', ' ', '-append');
+dlmwrite(filename, tfile.A          , 'delimiter', ' ', '-append');
+type(filename);
 
 %===================================================%
 % HELPER FUNCTIONS
