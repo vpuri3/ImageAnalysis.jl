@@ -8,7 +8,18 @@ xm = linspace(pfile.minXYZ(1), pfile.maxXYZ(1), pfile.dimXYZ(1));
 ym = linspace(pfile.minXYZ(2), pfile.maxXYZ(2), pfile.dimXYZ(2));
 zm = linspace(pfile.minXYZ(3), pfile.maxXYZ(3), pfile.dimXYZ(3));
 
-val = compute_val(pot, [9.1,12.2,14.4], xm, ym, zm);
+tfile = 'iso_tri.raw';
+tfile = readTriRaw(tfile);
+
+Nv = length(tfile.x);
+xyz  = horzcat(tfile.x, tfile.y, tfile.z);
+pval = zeros(Nv, 1);
+
+for i=1:Nv
+    pval(i) = compute_val(pot, xyz(i,:), xm, ym, zm);
+end
+
+%val = compute_val(pot, [9.1,12.2,14.4], xm, ym, zm);
 
 %===================================================%
 % HELPER FUNCTIONS
