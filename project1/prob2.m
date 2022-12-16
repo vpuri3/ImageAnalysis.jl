@@ -19,7 +19,9 @@ for i=1:Nv
     pval(i) = compute_val(pot, xyz(i,:), xm, ym, zm);
 end
 
-%val = compute_val(pot, [9.1,12.2,14.4], xm, ym, zm);
+pmax  = max(pval)
+pmin  = min(pval)
+pmean = sum(pval) / Nv
 
 %===================================================%
 % HELPER FUNCTIONS
