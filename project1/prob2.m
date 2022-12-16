@@ -1,5 +1,4 @@
 %
-
 pfile = '2BG9_pot97129.rawiv';
 pfile = readRawiv(pfile);
 
