@@ -38,7 +38,7 @@ Ne = tfile.nElems;
 
 filename = 'iso_tri.rawc';
 fid = fopen(filename, 'w');
-fprintf(fid, [num2str(Nv), ' ', num2str(Ne)]);
+fprintf(fid, [num2str(Nv), ' ', num2str(Ne), '\n']);
 dlmwrite(filename, horzcat(xyz, rgb), 'delimiter', ' ', '-append');
 dlmwrite(filename, tfile.A          , 'delimiter', ' ', '-append');
 type(filename);
