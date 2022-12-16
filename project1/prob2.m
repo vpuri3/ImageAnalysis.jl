@@ -52,9 +52,14 @@ function uvw = local_coordinates(xyz, ixyz, xm, ym, zm)
     iy = ixyz(2);
     iz = ixyz(3);
 
-    [x0, x1] = deal(xm(ix), xm(ix + 1));
-    [y0, y1] = deal(ym(ix), ym(ix + 1));
-    [z0, z1] = deal(zm(ix), zm(ix + 1));
+    x0 = xm(ix );
+    x1 = xm(ix + 1);
+
+    y0 = ym(iy );
+    y1 = ym(iy + 1);
+
+    z0 = zm(iz );
+    z1 = zm(iz + 1);
 
     x = xyz(1);
     y = xyz(2);
@@ -64,12 +69,14 @@ function uvw = local_coordinates(xyz, ixyz, xm, ym, zm)
     v = (y - y0) / (y1 - y0);
     w = (z - z0) / (z1 - z0);
 
+    assert(-1e-12 < u < 1.0 + 1e-12);
+    assert(-1e-12 < v < 1.0 + 1e-12);
+    assert(-1e-12 < w < 1.0 + 1e-12);
+
     uvw = [u, v, w];
 end
 
 function wts = intp_wts(u, ixyz)
-    % get interpolation weights from array, voxel idx
-    %
 
     ix = ixyz(1);
     iy = ixyz(2);
@@ -86,6 +93,7 @@ function wts = intp_wts(u, ixyz)
     wts.u011 = u(ix  , iy+1, iz+1);
 
     wts.u111 = u(ix+1, iy+1, iz+1);
+
 end
 
 function val = interpolate(wts, uvw)
@@ -113,7 +121,7 @@ function val = compute_val(u, xyz, xm, ym, zm)
 
     ixyz = voxel_idx(xyz, xm, ym, zm);
     uvw  = local_coordinates(xyz, ixyz, xm, ym, zm);
-    wts  = intp_wts(u, ixyz);
 
+    wts = intp_wts(u, ixyz);
     val = interpolate(wts, uvw);
 end
